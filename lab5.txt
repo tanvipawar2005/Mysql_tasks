@@ -1,0 +1,25 @@
+
+-- Retrieve information about students from the 'student' table 
+-- and display the results in ascending order based on their last names.
+
+SELECT * 
+FROM Student 
+ORDER BY LastName ASC;
+
+
+-- Count the number of students based on their gender from the 'Student' table.
+
+SELECT gender, COUNT(*) AS student_count 
+FROM Student 
+GROUP BY gender;
+
+====================================================
+CHATGPT EXERCISE 
+
+-- Count the number of books written by each author from the 'books' table 
+-- and order the results by author_id without using a JOIN clause.
+
+SELECT author_id, COUNT(*) AS book_count 
+FROM books 
+GROUP BY author_id 
+ORDER BY author_id ASC;

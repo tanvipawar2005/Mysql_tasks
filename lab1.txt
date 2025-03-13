@@ -1,0 +1,76 @@
+-- 1. Create the Database
+CREATE DATABASE StudentManagementSystem;
+USE StudentManagementSystem;
+
+
+
+-- 2. Create the Student Table
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    DateOfBirth DATE NOT NULL,
+    Gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    Phone VARCHAR(15)  NOT NULL
+);
+
+
+
+
+-- 3. Create the Course Table
+CREATE TABLE Course (
+    CourseID INT PRIMARY KEY AUTO_INCREMENT,
+    CourseTitle VARCHAR(100) NOT NULL,
+    Credits INT 
+);
+
+
+
+
+-- 4. Create the Instructor Table
+CREATE TABLE Instructor (
+    InstructorID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL
+);
+
+
+
+
+-- 5. Create the Enrollment Table (with foreign keys)
+CREATE TABLE Enrollment (
+    EnrollmentID INT PRIMARY KEY AUTO_INCREMENT,
+    EnrollmentDate DATE NOT NULL,
+    StudentID INT,
+    CourseID INT,
+    InstructorID INT,
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID) ON DELETE CASCADE,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID) ON DELETE CASCADE,
+    FOREIGN KEY (InstructorID) REFERENCES Instructor(InstructorID) ON DELETE CASCADE
+);
+
+
+
+-- 6. Create the Score Table (with foreign keys)
+CREATE TABLE Score (
+    ScoreID INT PRIMARY KEY AUTO_INCREMENT,
+    CourseID INT,
+    StudentID INT,
+    DateOfExam DATE NOT NULL,
+    CreditObtained INT,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID) ON DELETE CASCADE,
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID) ON DELETE CASCADE
+);
+
+
+-- 7. Create the Feedback Table (with foreign key)
+CREATE TABLE Feedback (
+    FeedbackID INT PRIMARY KEY AUTO_INCREMENT,
+    StudentID INT,
+    Date DATE NOT NULL,
+    InstructorName VARCHAR(50) NOT NULL,
+    Feedback TEXT NOT NULL,
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID) ON DELETE CASCADE
+);

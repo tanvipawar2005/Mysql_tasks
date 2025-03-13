@@ -1,0 +1,56 @@
+Assignment 1
+
+-- Task 1: Retrieve students born after June 16, 2009
+SELECT * FROM Student
+WHERE DateOfBirth > '2009-06-16';
+
+-- Task 2: Retrieve students whose first names start with 'A' or 'J'
+SELECT * FROM Student
+WHERE FirstName LIKE 'A%' OR FirstName LIKE 'J%';
+
+-- Task 3: Retrieve students whose first name is NOT 'Alice' and email contains '@example.com'
+SELECT * FROM Student
+WHERE FirstName <> 'Alice' AND Email LIKE '%@example.com%';
+
+=================================
+
+Assignment 2
+ 
+-- Task 1: Create Person table
+CREATE TABLE Person (
+    PersonID INT PRIMARY KEY,
+    FirstName VARCHAR(100),
+    LastName VARCHAR(100),
+    Age INT
+);
+
+-- Task 2: Create Employee table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    First_Name VARCHAR(100),
+    Last_Name VARCHAR(100),
+    Age INT
+);
+
+-- Task 3: Insert data into Person table
+INSERT INTO Person (PersonID, FirstName, LastName, Age) 
+VALUES (1, 'John', 'Doe', 30),
+       (2, 'Sam', 'Smith', 25),
+       (3, 'Alice', 'Brown', 28);
+
+-- Task 4: Insert data into Employee table
+INSERT INTO Employee (Emp_ID, First_Name, Last_Name, Age) 
+VALUES (101, 'Michael', 'Johnson', 35),
+       (102, 'Emily', 'Davis', 29),
+       (103, 'David', 'Wilson', 32);
+
+-- Task 5: Create a UNION of Person and Employee tables
+SELECT PersonID AS ID, FirstName AS First_Name, LastName AS Last_Name, Age FROM Person
+UNION
+SELECT Emp_ID AS ID, First_Name, Last_Name, Age FROM Employee;
+
+======================================
+chatgpt exercise :
+
+Prompt:
+"Generate an SQL query to find courses where the average grade is below a 'C'. Consider that the 'Course' table contains 'CourseId', 'CourseName', and 'CreditHours'. The 'Grade' table contains 'StudentId' (as a Foreign Key), 'CourseId' (as a Foreign Key), and 'Grade'. Assume that grades are stored in a standard format such as 'A', 'B', 'C', 'D', and 'F', where 'C' and above are passing grades. Convert letter grades into numerical values (A=4, B=3, C=2, D=1, F=0) and calculate the average grade per course. Retrieve only those courses where the average grade is below 2.0 ('C')."

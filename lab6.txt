@@ -1,0 +1,49 @@
+LAB 1
+-- Add new columns 'Salary' and 'Department' to the Employee table
+ALTER TABLE Employee ADD COLUMN Salary INT;
+ALTER TABLE Employee ADD COLUMN Department VARCHAR(255);
+
+-- Insert data
+INSERT INTO Employee (emp_id, first_name, last_name, age, Salary, Department) 
+VALUES 
+(1, 'Amit', 'Joshi', 32, 62000, 'IT'),
+(2, 'Sneha', 'Patil', 29, 78000, 'IT'),
+(3, 'Rahul', 'Deshmukh', 34, 50000, 'Finance'),
+(4, 'Priya', 'Jadhav', 27, 54000, 'IT'),
+(5, 'Saurav', 'Shinde', 40, 49000, 'HR'),
+
+-- Retrieve employees in IT department with salary greater than 50,000
+SELECT * FROM Employee 
+WHERE Salary > 50000 AND Department = 'IT';
+
+==============================
+LAB 2
+
+-- Retrieve products from 'Electronics' category or priced below ₹70,000
+SELECT * FROM product 
+WHERE category = 'Electronics' OR price < 70000;
+
+================================
+LAB 3
+
+-- Calculate average salary per department
+SELECT Department, AVG(Salary) AS Average_Salary 
+FROM Employee 
+GROUP BY Department;
+
+==================================
+CHATGPT EXERCISE 
+
+1.Prompt for average age by department 
+
+I have an "Employee" table with the following columns: employee_id, employee_name, department, and age.  
+I want to determine the average age of employees in each department.  
+Please generate an SQL query using the AVG() function and GROUP BY clause.
+
+
+2.prompt for average salary by department
+
+I have an "Employee" table with the following columns: employee_id, employee_name, department, and salary.  
+I want to find the average salary for each department.  
+Please generate an SQL query using the AVG() function and GROUP BY clause.
+

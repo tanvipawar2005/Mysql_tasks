@@ -1,0 +1,81 @@
+--Task 1
+-- Change the email to 'jane_Smith@example.com'
+-- Where FirstName is 'Jane' and LastName is 'Smith'
+
+UPDATE Student 
+SET Email = 'jane_Smith@example.com' 
+WHERE FirstName = 'Jane' AND LastName = 'Smith';
+
+======================================================
+
+
+--  Change the email to 'rogerwhite@example.com'
+-- Where FirstName of the instructor is 'Roger' and LastName is 'White';
+
+UPDATE Instructor 
+SET Email = 'rogerwhite@example.com' 
+WHERE FirstName = 'Roger' AND LastName = 'White';
+
+=========================================================
+
+-- Task 2
+-- Delete record from the Student table 
+DELETE FROM Student 
+WHERE LastName = 'Smith';
+
+-- Task 3
+-- List the student whose first name starts with J
+
+SELECT * FROM Student 
+WHERE FirstName LIKE 'J%';
+
+--------------------------------------------------------------
+------------------------------------------------------------------
+
+-- Task 1: Insert Data
+-- Write an SQL INSERT statement to insert data into the Employee table 
+
+INSERT INTO Employee (emp_id, first_name, last_name, age, email) 
+VALUES 
+(1, 'Rohan', 'Patil', 28, 'rohan.patil@example.com'),
+(2, 'Sita', 'shinde', 35, 'sita.shinde@example.com'),
+(3, 'Amit', 'Kumar', 40, 'amit.kumar@example.com'),
+(4, 'Priya', 'Joshi', 22, 'priya.joshi@example.com'),
+(5, 'Rahul', 'Mehta', 30, 'rahul.mehta@example.com');
+
+====================================================
+
+
+-- Task 2: Retrieving Data
+-- Write an SQL SELECT statement to retrieve the first_name and last_name of all
+ employees from the Employee table
+
+SELECT first_name, last_name FROM Employee;
+
+======================================================
+
+--Task 3: Filtering Data
+-- Write an SQL SELECT statement to retrieve the first_name, last_name, and age of
+ employees who are older than 30 years.
+
+SELECT first_name, last_name, age FROM Employee WHERE age > 30;
+
+==========================================================
+
+-- Task 4: Updating Data
+-- increase the age of employees by 1 year for all employees older than 25
+
+UPDATE Employee SET age = age + 1 WHERE age > 25;
+
+==========================================================
+
+--  ChatGPT Exercise
+
+-- Update salary by 10% for employees with the job title 'Manager'
+UPDATE Employee 
+SET salary = salary * 1.10 
+WHERE job_title = 'Manager';
+
+
+
+

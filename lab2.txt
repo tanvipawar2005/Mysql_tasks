@@ -1,0 +1,65 @@
+Lab 1. Use the Database and table from Day 1 lab. Insert 5 records in each table and retrieve data from all tables and display.
+
+ -- inserting records in tables.
+ INSERT INTO Student (FirstName, LastName, DateOfBirth, Gender, Email, Phone) VALUES
+('Shanaya', 'Sharma', '2002-05-12', 'Female', 'shanaya.sharma@gmail.com', '9876543210'),
+('Payal', 'Pail', '2001-07-22', 'Female', 'priya.verma@gmail.com', '9876543211'),
+('Manas', 'Pawar', '2000-11-15', 'Male', 'amit.kumar@gmail.com', '9876543212'),
+('Doraemon', 'Gadget', '2010-08-03', 'Male', 'doraemon@gmail.com', '9876543213'),
+('Nobita', 'Nobi', '2001-12-25', 'Male', 'nobita.nobi@gmail.com', '9876543214');
+
+SELECT * FROM Student;
+
+
+-- Insert Records into Course Table
+INSERT INTO Course (CourseTitle, Credits) VALUES
+('Data Structures', 4),
+('Database Management', 3),
+('Artificial Intelligence', 5),
+('Operating Systems', 3),
+('Web Development', 4);
+
+SELECT * FROM Course;
+
+
+
+-- Insert Records into Instructor Table
+INSERT INTO Instructor (FirstName, LastName, Email) VALUES
+('Anjali', 'Kulkarni', 'kulkarni_anjali@gmail.com),
+('Ashwini', 'Pawar', 'ashwini@gmail.com'),
+('Akhil', 'Rao', 'akhil.rao@example.com'),
+('Shizuka', 'Minamoto', 'shizuka@example.com'),
+('Takeshi', 'Goda', 'takeshi@example.com');
+
+SELECT * FROM Instructor;
+
+
+INSERT INTO Enrollment (EnrollmentDate, StudentID, CourseID, InstructorID) VALUES
+('2025-02-01', 1, 1, 1),
+('2025-02-02', 2, 2, 2),
+('2025-02-03', 3, 3, 3),
+('2025-02-04', 4, 4, 4),
+('2025-02-05', 5, 5, 5);
+
+SELECT * FROM Enrollment;
+
+
+INSERT INTO Score (CourseID, StudentID, DateOfExam, CreditObtained) VALUES
+(1, 1, '2025-03-01', 90),
+(2, 2, '2025-03-02', 85),
+(3, 3, '2025-03-03', 88),
+(4, 4, '2025-03-04', 92),
+(5, 5, '2025-03-05', 80);
+
+SELECT * FROM Score;
+
+
+INSERT INTO Feedback (StudentID, Date, InstructorName, Feedback) VALUES
+(1, '2025-03-10', 'Anjali Kulkarni', 'Great teaching and interactive sessions.'),
+(2, '2025-03-11', 'Ashwini Pawar', 'Very informative and practical learning.'),
+(3, '2025-03-12', 'Akhil Rao', 'Loved the explanations and examples.'),
+(4, '2025-03-13', 'Shizuka Minamoto', 'Interactive and fun learning experience.'),
+(5, '2025-03-14', 'Takeshi Goda', 'Concepts were made easy to understand.');
+
+SELECT * FROM Feedback;
+
