@@ -1,0 +1,29 @@
+-- Query 1: FULL OUTER JOIN between Student and Enrollment to get all students and their -- Simulating FULL OUTER JOIN between Student and Enrollment
+SELECT *
+FROM Student
+LEFT JOIN Enrollment ON Student.StudentID = Enrollment.StudentID
+
+UNION
+
+SELECT *
+FROM Student
+RIGHT JOIN Enrollment ON Student.StudentID = Enrollment.StudentID;
+
+
+-------------------------------------------------------------------------
+
+
+-- Query 2: NATURAL JOIN between Student and Enrollment to retrieve matched details where column names are the same
+SELECT *
+FROM Student
+NATURAL JOIN Enrollment;
+
+
+---------------------------------------------------------------------
+
+ChatGPT prompt:
+
+"Write an SQL query using FULL OUTER JOIN to generate a report that includes all products from the 'inventory' table and their corresponding sales from the 'sales' table. The 'inventory' table has columns: ProductID, ProductName, StockQuantity. The 'sales' table has columns: SaleID, ProductID (foreign key), SaleQuantity, SaleDate. The output should show all products, whether sold or not, with NULLs for unsold products."
+
+
+

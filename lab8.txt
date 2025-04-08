@@ -1,0 +1,26 @@
+-- Retrieve student details along with their enrollment details
+-- Using INNER JOIN to fetch student ID, first name, last name, enrollment ID, and course ID
+
+SELECT 
+    s.StudentID, 
+    s.FirstName, 
+    s.LastName, 
+    e.EnrollmentID, 
+    e.CourseID
+FROM Student s INNER JOIN Enrollment e ON s.StudentID = e.StudentID;
+
+
+------------------------------------------------------------------------------------
+
+CHATGPT EXERCISE :
+
+ChatGPT Prompt :
+Prompt: I have a Student table with columns (StudentId, FirstName, LastName), a Course table with columns (CourseId, CourseName), and an Enrollment table with columns (EnrollmentID, StudentID, CourseID). I want to generate a list of all student-course combinations using INNER JOIN, showing the student's name and the course name. Please write the SQL query for this.
+
+Query :
+-- Retrieve a list of all student-course combinations using INNER JOIN
+-- Joining Student, Enrollment, and Course tables
+
+SELECT s.FirstName,s.LastName,c.CourseNameFROM Student s
+INNER JOIN Enrollment e ON s.StudentID = e.StudentID
+INNER JOIN Course c ON e.CourseID = c.CourseID;

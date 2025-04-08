@@ -1,0 +1,59 @@
+-- Task 1: RIGHT OUTER JOIN to retrieve all enrollments, including students not enrolled
+-- Scenario: Bob Johnson is not enrolled, so we want to show all enrollments and match students if available
+
+SELECT 
+    e.EnrollmentID,
+    e.StudentID,
+    s.StudentName,
+    s.Email,
+    e.CourseID
+FROM Student s
+RIGHT JOIN Enrollment e
+ON s.StudentID = e.StudentID;
+
+-----------------------------------------------------------------------------------
+
+-- Task 2: LEFT JOIN to retrieve all students and their enrollments (including students without enrollments)
+
+SELECT 
+    s.StudentID,
+    s.StudentName,
+    s.Email,
+    e.EnrollmentID,
+    e.CourseID
+FROM Student s
+LEFT JOIN Enrollment e
+ON s.StudentID = e.StudentID;
+
+-----------------------------------------------------------------------------------------
+
+-- ChatGPT Exercise
+-- Scenario 1: :You have two tables, employees and departments. Retrieve a list of
+employees along with their department names using an inner join.
+
+SELECT 
+    e.EmployeeID,
+    e.EmployeeName,
+    d.DepartmentName
+FROM Employees e
+INNER JOIN Departments d
+ON e.DepartmentID = d.DepartmentID;
+
+
+
+-- Scenario 2: :In an employee database, join the employees table with itself to display
+each employee along with their manager, including employees without managers, using
+a left join.
+
+SELECT 
+    e.EmployeeID,
+    e.EmployeeName,
+    m.ManagerName
+FROM Employee e
+LEFT JOIN Manager m
+ON e.ManagerID = m.ManagerID;
+
+------------------------------------------------------------------------------------------
+
+ChatGPT Prompt :
+Prompt: I have two tables in my database: Employee with columns (EmployeeID, EmployeeName, ManagerID) and Manager with columns (ManagerID, ManagerName). I want to write an SQL query that retrieves each employee along with their manager's name. The result should include employees even if they don't have a manager. Use a LEFT JOIN. Please generate the SQL query for this.
